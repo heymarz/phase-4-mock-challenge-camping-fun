@@ -9,7 +9,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
   #GET /campers/:id
   def show
-    camper = Camper.find_by(id: params[:id])
+    camper = Camper.find(params[:id])
     render json: camper, serializer: CamperWithActivitiesSerializer
   end
 
